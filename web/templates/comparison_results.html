@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Results</title>
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hasil Perbandingan</h1>
+        <p>Berikut adalah hasil perbandingan kedua file</p>
+
+        <!-- Menampilkan Skor Kemiripan Keseluruhan -->
+        <div class="overall-score">
+            <strong>Skor Kesamaan Keseluruhan:</strong> {{ overall_similarity_score | round(2) }}
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>File Original</th>
+                    <th>File Modifikasi</th>
+                    <th>Score Kemiripan</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for comparison in comparisons %}
+                <tr class="{{ 'similar' if comparison.is_similar else 'different' }}">
+                    <td>{{ comparison.line_number }}</td>
+                    <td>{{ comparison.original }}</td>
+                    <td>{{ comparison.modified }}</td>
+                    <td>{{ comparison.similarity_score | round(2) }}</td> <!-- Skor kemiripan per baris -->
+                    <td>{{ 'Sama' if comparison.is_similar else 'Berbeda' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/" class="btn-back">Home</a>
+    </div>
+
+</body>
+</html>

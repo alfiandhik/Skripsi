@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Swapping Application</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1><i class="fas fa-shield-alt"></i>IMPLEMENTASI ALGORITMA JARO WINKLER PADA TEKNIK SWAPPING UNTUK PERLINDUNGAN DATA TRANSAKSI SENSITIF</h1>
+        <p></p>
+
+        <div class="form-container">
+            <div class="form-box upload-container">
+                <form method="POST" action="/" enctype="multipart/form-data">
+                    <h2><i class="fas fa-file-upload"></i> File Swapping</h2>
+                    <p>Unggah file Anda untuk memproses dan swap data menggunakan algoritma Jaro-Winkler</p>
+                    
+                    <label for="fileInput">
+                        <i class="fas fa-cloud-upload-alt"></i> Pilih File
+                    </label>
+                    <input type="file" id="fileInput" name="file" required>
+                    <p id="fileName">Tidak ada file yang dipilih</p>
+
+                    <button type="submit">
+                        <i class="fas fa-upload"></i> Upload File
+                    </button>
+                </form>
+            </div>
+
+            <div class="form-box compare-container">
+                <form method="POST" action="/compare" enctype="multipart/form-data">
+                    <h3><i class="fas fa-exchange-alt"></i> Membandingkan Dua File</h3>
+                    <p>Unggah file asli dan file yang telah ditukar untuk membandingkan kesamaan mereka menggunakan algoritma Jaro-Winkler</p>
+
+                    <label for="originalFileInput">
+                        <i class="fas fa-file-alt"></i> Pilih File Original
+                    </label>
+                    <input type="file" id="originalFileInput" name="original_file" required>
+                    <p id="originalFileName">tidak ada file yang dipilih</p>
+
+                    <label for="modifiedFileInput">
+                        <i class="fas fa-file-alt"></i> Pilih File Modifikasi
+                    </label>
+                    <input type="file" id="modifiedFileInput" name="modified_file" required>
+                    <p id="modifiedFileName">Tidak ada file yang dipilih</p>
+
+                    <button type="submit">
+                        <i class="fas fa-exchange-alt"></i> Bandingkan File
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            © 2024 <a href="#">RACING</a>
+        </footer>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileName');
+
+        const originalFileInput = document.getElementById('originalFileInput');
+        const originalFileNameDisplay = document.getElementById('originalFileName');
+
+        const modifiedFileInput = document.getElementById('modifiedFileInput');
+        const modifiedFileNameDisplay = document.getElementById('modifiedFileName');
+
+        fileInput.addEventListener('change', function() {
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file chosen';
+            fileNameDisplay.textContent = fileName;
+        });
+
+        originalFileInput.addEventListener('change', function() {
+            const fileName = originalFileInput.files[0] ? originalFileInput.files[0].name : 'No file chosen';
+            originalFileNameDisplay.textContent = fileName;
+        });
+
+        modifiedFileInput.addEventListener('change', function() {
+            const fileName = modifiedFileInput.files[0] ? modifiedFileInput.files[0].name : 'No file chosen';
+            modifiedFileNameDisplay.textContent = fileName;
+        });
+    </script>
+</body>
+</html>

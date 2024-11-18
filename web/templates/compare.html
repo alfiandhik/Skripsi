@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Result</title>
+    <style>
+        table {
+            width: 45%;
+            margin: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>File Comparison</h1>
+
+    <div class="container">
+        <div>
+            <h2>Original File</h2>
+            {{ original | safe }}
+        </div>
+
+        <div>
+            <h2>Modified File</h2>
+            {{ modified | safe }}
+        </div>
+    </div>
+
+</body>
+</html>

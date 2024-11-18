@@ -1,0 +1,203 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #dfeefc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Form-container untuk kedua form bersebelahan */
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Style untuk upload container */
+.upload-container, .compare-container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for form-box */
+.upload-container:hover, .compare-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+h1, h2 {
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+/* File Input Label */
+input[type="file"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    background-color: #005cbf;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+label:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+label i {
+    margin-right: 10px;
+}
+
+/* Button Styles */
+button {
+    background: linear-gradient(45deg, #007bff, #4CAF50);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0056b3, #388E3C);
+    transform: scale(1.1);
+}
+
+/* Selected File Text */
+#fileName, #originalFileName, #modifiedFileName {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #999;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .form-container {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+
+    h1, h2 {
+        font-size: 22px;
+    }
+
+    button, label {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+/* Tabel untuk hasil perbandingan */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.comparison-table th {
+    background-color: #f4f4f4;
+    font-weight: 600;
+    color: #333;
+}
+
+.comparison-table td {
+    font-size: 14px;
+    color: #555;
+}
+
+.similar {
+    background-color: #e0f7fa; /* Warna untuk baris yang mirip */
+}
+
+.different {
+    background-color: #ffebee; /* Warna untuk baris yang berbeda */
+}
+
+/* Tombol kembali */
+.btn-back {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+
+.overall-score {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    display: inline-block;
+    color: #00796b;
+}
+
